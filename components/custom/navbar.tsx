@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Button } from "../ui/button";
 
 const NAV_ITEMS = ["Home", "Services", "About", "Contact"] as const;
 
@@ -75,19 +76,19 @@ export default function Navbar() {
   }, [isMobileMenuOpen]);
 
   return (
-    <nav className="sticky top-0">
-      <div
-        className={cn(
-          "sticky top-0 z-50 w-full transition-all duration-500 ease-in-out",
+    <nav className={cn(
+          "w-full transition-all duration-500 ease-in-out sticky top-0",
           "py-4 px-8 bg-[#1A374D] text-white",
-          "flex justify-between items-center",
-          isScrolled && "bg-[#1A374D]/80 backdrop-blur-lg rounded-b-4xl shadow-2xl shadow-black/20", isMobileMenuOpen && "bg-[#1A374D]/90 backdrop-blur-lg shadow-2xl shadow-black/20", isScrolled && isMobileMenuOpen && "rounded-br-none"
-        )}
+          isScrolled && "bg-[#1A374D]/50 backdrop-blur-lg shadow-2xl shadow-black/20",
+          isScrolled && !isMobileMenuOpen && "rounded-b-4xl",
+        )}>
+      <div
+      className="flex justify-between items-center z-40"
       >
         {/* Logo */}
         <Link 
           href="/" 
-          className="font-bold text-xl hover:text-blue-200 transition-colors"
+          className="font-bold text-xl hover:text-blue-200 transition-colors animate-pulse"
         >
           Imron Servis
         </Link>
@@ -114,7 +115,7 @@ export default function Navbar() {
         <button
           ref={toggleRef}
           onClick={toggleMenu}
-          className="md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
+          className="md:hidden p-2 hover:bg-white/10 rounded-lg transition-all duration-200 "
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
         >
@@ -130,13 +131,12 @@ export default function Navbar() {
       <div
         ref={menuRef}
         className={cn(
-          "fixed top-15.5 right-0 w-full max-w-sm bg-[#1A374D]/50 backdrop-blur-lg md:hidden",
-          "z-40 flex flex-col pt-8 pb-6 space-y-4 px-6",
-          "transition-all duration-300 ease-in-out",
-          "rounded-bl-4xl",
+          "w-full md:hidden overflow-hidden flex flex-col",
+          "transition-all duration-300 ease-in-out origin-top",
+          "text-center",
           isMobileMenuOpen
-            ? "translate-x-0  opacity-100"
-            : "translate-x-full opacity-0  pointer-events-none"
+            ? "max-h-125 opacity-100 translate-y-0 mt-4"
+            : "max-h-0 opacity-0 -translate-y-2"
         )}
       >
         {NAV_ITEMS.map((link) => (
@@ -147,13 +147,14 @@ export default function Navbar() {
             className={cn(
               "px-4 py-2 rounded-lg transition-all duration-200",
               isActive(link)
-                ? "bg-blue-500/20 text-blue-300 font-semibold"
+                ? "bg-blue-500 text-white font-semibold"
                 : "hover:bg-white/5 text-white"
             )}
           >
             {link}
           </Link>
         ))}
+        <Button className="mt-4 bg-red-600 font-bold" color="">Hubungi Sekarang</Button>
       </div>
     </nav>
   );
