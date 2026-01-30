@@ -62,8 +62,10 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        "w-full transition-all duration-100 ease-in-out sticky top-0",
-        "py-4 px-8 bg-brand-dark text-white select-none",
+        "w-full sticky top-0 z-50 transition-all duration-300",
+        "py-4 px-8 select-none",
+        "bg-brand-navy/95 backdrop-blur-lg",
+        "text-brand-navy dark:text-white border-b border-slate-200 dark:border-white/10 shadow-sm",
       )}
     >
       <div className="max-w-7xl mx-auto">

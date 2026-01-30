@@ -1,29 +1,31 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-brand-dark: #1A374D;
-  --color-brand-light: #F0F4F8;
+  /* Warna Brand Utama */
+  --color-brand-navy: #0B2434;
+  --color-brand-steel: #20536F;
+  --color-brand-teal: #62949B;
+  --color-brand-light: #F1F3F4;
   
-  /* Gunakan variabel CSS agar bisa berubah otomatis */
+  /* Variabel Dinamis */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 }
 
 :root {
-  /* Default Mode (Light) */
-  --background: #ffffff;
-  --foreground: #1A374D;
+  /* Light Mode - Pake Off-White biar gak silau banget */
+  --background: #F1F3F4; 
+  --foreground: #0B2434;
 }
 
-/* KUNCI UTAMANYA DI SINI */
 .dark {
-  --background: #0a0a0a; /* Warna item pekat buat dark mode */
-  --foreground: #ededed;
+  /* Dark Mode - Pake Biru Navy paling pekat dari palet lu */
+  --background: #0B2434;
+  --foreground: #F1F3F4;
 }
 
 body {
-  /* Pakai variabel yang sudah didefinisikan di atas */
   background-color: var(--background);
   color: var(--foreground);
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color-0.3s;
 }

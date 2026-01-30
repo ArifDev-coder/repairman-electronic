@@ -5,11 +5,14 @@ import Marquee from "react-fast-marquee";
 
 export default function MarqueeCustom() {
   return (
-    <div className="dark:text-black text-white dark:bg-white">
-      <Marquee pauseOnHover={true}>
-        <span className="mx-2 font-bold text-sm md:text-md lg:text-lg select-none">
+    <div className="w-full bg-brand-steel text-white py-1.5 border-b border-white/5">
+      <Marquee pauseOnHover={true} speed={50}>
+        <span className="mx-4 font-bold text-sm select-none tracking-wide">
           <Link href="https://wa.me/62xxxxxxxxxxxx" target="_blank">
-            📞 HUBUNGI WA: <span className="underline hover:pointer select-all">0812-XXXX-XXXX</span>
+            📞 HUBUNGI WA:{" "}
+            <span className="underline decoration-blue-400">
+              0812-XXXX-XXXX
+            </span>
           </Link>
         </span>
       </Marquee>
