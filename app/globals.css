@@ -1,29 +1,29 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-html,
-body,
-:root{
-  min-height: 10000rem;
-}
-
 @theme inline {
+  --color-brand-dark: #1A374D;
+  --color-brand-light: #F0F4F8;
+  
+  /* Gunakan variabel CSS agar bisa berubah otomatis */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  /* Default Mode (Light) */
+  --background: #ffffff;
+  --foreground: #1A374D;
+}
+
+/* KUNCI UTAMANYA DI SINI */
+.dark {
+  --background: #0a0a0a; /* Warna item pekat buat dark mode */
+  --foreground: #ededed;
 }
 
 body {
-  background: var(--background);
+  /* Pakai variabel yang sudah didefinisikan di atas */
+  background-color: var(--background);
   color: var(--foreground);
+  transition: background-color 0.3s, color 0.3s;
 }

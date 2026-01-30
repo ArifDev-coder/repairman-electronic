@@ -4,10 +4,11 @@ import "./globals.css";
 
 import Navbar from "@/components/custom/navbar";
 import MarqueeCustom from "@/components/custom/marquee";
+import { ThemeProvider } from "@/components/themes/theme-provider";
 
-const montserrat = Montserrat({ subsets: ["latin"] })
-const roboto = Roboto({ subsets: ["latin"] })
-const bebas_neue = Bebas_Neue({ subsets: ["latin"], weight: ["400"] })
+const montserrat = Montserrat({ subsets: ["latin"] });
+const roboto = Roboto({ subsets: ["latin"] });
+const bebas_neue = Bebas_Neue({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,15 +21,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${montserrat.className} scroll-smooth min-h-screen antialiased`}
+        className={`${montserrat.className} scroll-smooth min-h-screen antialiased `}
       >
-        <MarqueeCustom />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+        >
+          {/* Marquee Custom */}
+          <MarqueeCustom />
 
-        <Navbar />
+          {/* Navbar Here */}
+          <Navbar />
 
-        {children}
+          {/* Content */}
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
