@@ -1,9 +1,30 @@
 export default function Hero() {
-    return (
-        <section className="relative w-full min-h-screen flex items-center pt-10 pb-20">
-            <div className="max-w-7xl mx-auto px-8 w-full grid md:grid-cols">
-                <span>Jasa Servis Elektronik Terpercaya</span>
-            </div>
-        </section>
-    )
+  return (
+    <section className="relative w-full min-h-screen flex items-center pt-10 pb-20">
+      <div className="max-w-7xl mx-auto px-8 w-full grid md:grid-cols-2 gap-12 items-center">
+        <div className="z-10">
+          <span className="inline-block bg-blue-600/10 text-blue-700 px-4 py-1.5 rounded-full text-sm font-bold mb-6">
+            Jasa Servis Elektronik Terpercaya
+          </span>
+          <h1 className="text-5xl md:text-7xl font-extrabold text-brand-navy">
+            Solusi Servis Elektronik di Kota Anda <br />
+            <span className="text-blue-600">Perangkat Elektronik</span> Anda
+          </h1>
+
+          <p className="text-slate-600 text-lg mb-10 leading-relaxed max-w-lg">
+            Kami memperbaiki TV, Kulkas, Mesin Cuci dan lain lain.
+          </p>
+
+          <div className="flex flex-wrap gap-4 mb-10">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300">
+              Konsulasi Via Whatsapp
+            </button>
+            <button className="bg-white border-2 border-slate-200 hover:border-blue-600 text-brand-navy px-8 py-3 rounded-lg font-bold transition-all">
+                Daftar Harga Servis
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
