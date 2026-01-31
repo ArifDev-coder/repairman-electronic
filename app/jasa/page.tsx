@@ -1,7 +1,12 @@
-export default function jasa() {
+export default function Services() {
     return (
-        <main className="min-h-screen flex flex-col justify-center items-center">
-            Jasa Here.
-        </main>
+        <section className="py-24 bg-white">
+            <div className="max-w-7xl mx-auto px-8">
+                <div className="text-center mb-16">
+                    <h2>Layanan Unggul</h2>
+                    <p></p>
+                </div>
+            </div>
+        </section>
     )
 }
