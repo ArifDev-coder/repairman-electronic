@@ -3,9 +3,6 @@ export default function Hero() {
     <section className="relative w-full min-h-screen flex items-center pt-10 pb-20">
       <div className="max-w-7xl mx-auto px-8 w-full grid md:grid-cols-2 gap-12 items-center">
         <div className="z-10">
-          <span className="inline-block bg-blue-600/10 text-blue-700 px-4 py-1.5 rounded-full text-sm font-bold mb-6">
-            Jasa Servis Elektronik Terpercaya
-          </span>
           <h1 className="text-5xl md:text-7xl font-extrabold text-brand-navy">
             Solusi Servis Elektronik di Kota Anda <br />
             <span className="text-blue-600">Perangkat Elektronik</span> Anda
