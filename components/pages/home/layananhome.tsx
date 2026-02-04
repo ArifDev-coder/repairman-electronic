@@ -23,7 +23,7 @@ export default function LayananHome() {
           ))}
         </div>
         <div className="my-4 bg-brand-steel py-2 text-white rounded-xl hover:bg-brand-steel/90">
-          <Link href="/">
+          <Link href="/jasa">
             Temukan Lebih Banyak.
           </Link>
         </div>
