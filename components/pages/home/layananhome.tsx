@@ -1,4 +1,5 @@
 import { dataLayanan } from "@/data/Layanan/dataLayanan";
+import Image from "next/image";
 
 export default function LayananHome() {
   return (
@@ -9,7 +10,9 @@ export default function LayananHome() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {dataLayanan.map((layanan, index) => (
             <div key={index} className="bg-brand-navy text-brand-light">
-                {layanan.title}
+                <div>
+                  <h1>{layanan.title}</h1>
+                </div>
             </div>
           ))}
         </div>
