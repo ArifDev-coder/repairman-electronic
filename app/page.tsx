@@ -1,6 +1,10 @@
-import Hero from "@/components/pages/home/hero";
-import LayananHome from "@/components/pages/home/layananhome";
-import Profile from "@/components/pages/home/profil";
+import Footer from "@/components/custom/footer";
+import GoogleMap from "@/components/custom/maplocation";
+import Promotion from "@/components/custom/promotion";
+import Hero from "@/app/hero";
+import LayananHome from "@/app/layananhome";
+import Profile from "@/app/review";
+import VisiMisi from "@/app/visimisi";
 
 export default function Home() {
   return (
@@ -8,6 +12,16 @@ export default function Home() {
       <Hero />
       <Profile />
       <LayananHome />
+
+      {/* Promotion */}
+      <Promotion />
+
+      <VisiMisi />
+
+      {/* Google Map */}
+      <GoogleMap />
+
+      <Footer />
     </main>
   );
 }

@@ -87,8 +87,9 @@ export default function Navbar() {
                 className={cn(
                   "transition-all duration-200",
                   isActive(link)
-                    ? "text-blue-400 font-semibold scale-105"
+                    ? "text-blue-400 font-semibold scale-120"
                     : "hover:text-blue-200",
+                  "active:scale-95 active:translate-y-1 shadow-sm active:shadow-inner"
                 )}
               >
                 {link}
