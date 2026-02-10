@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Montserrat, Roboto, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 
@@ -12,7 +13,8 @@ const bebas_neue = Bebas_Neue({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
   title: "Syafa Workshop - Jasa Servis Elektronik Terpercaya",
-  description: "Jasa Servis Elektronik Terpercaya di Kota Anda. Kami memperbaiki TV, Kulkas, Mesin Cuci, dan lain-lain dengan teknisi berpengalaman.",
+  description:
+    "Jasa Servis Elektronik Terpercaya di Kota Anda. Kami memperbaiki TV, Kulkas, Mesin Cuci, dan lain-lain dengan teknisi berpengalaman.",
 };
 
 export default function RootLayout({
