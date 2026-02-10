@@ -18,14 +18,10 @@
   --foreground: #0B2434;
 }
 
-/* Hapus Dark Mode - Force Light Mode */
 .dark {
-  --background: #F1F3F4 !important;
-  --foreground: #0B2434 !important;
-}
-
-html.dark {
-  color-scheme: light !important;
+  /* Dark Mode - Pake Biru Navy paling pekat dari palet lu */
+  --background: #0B2434;
+  --foreground: #F1F3F4;
 }
 
 body {
