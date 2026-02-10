@@ -27,9 +27,11 @@ export default function RootLayout({
       <body
         className={`${montserrat.className} scroll-smooth min-h-screen antialiased `}
       >
+        <SpeedInsights />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
+          forcedTheme="light"
           enableSystem={false}
         >
           {/* Marquee Custom */}
