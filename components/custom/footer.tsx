@@ -43,6 +43,14 @@ export default function Footer() {
                   Berita
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/kontak"
+                  className="hover:text-brand-teal/80 hover:underline"
+                >
+                  Kontak
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
@@ -65,6 +73,8 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+      </div>
+      <div>
       </div>
       <span className="w-full text-center mt-6 py-2 block text-xs font-semibold border-t-black/40 border-t">
         &copy;{new Date().getFullYear()} Syafa Workshop, All Right Reserved.

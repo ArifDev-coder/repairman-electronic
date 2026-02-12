@@ -1,7 +1,12 @@
-export default function Berita() {
+import Footer from "@/components/custom/footer";
+import Berita from "./Berita";
+
+export default function BeritaPage() {
   return (
-    <main className="min-h-screen flex flex-col justify-center items-center">
-      Berita Here
+    <main>
+      <Berita />
+
+      <Footer />
     </main>
-  );
+  )
 }

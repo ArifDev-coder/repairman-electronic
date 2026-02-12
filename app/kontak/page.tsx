@@ -1,7 +1,12 @@
-export default function Contact() {
-    return (
-        <main className="min-h-screen flex flex-col justify-center items-center">
-            Contact Here.
+import Footer from "@/components/custom/footer";
+import Kontak from "./Kontak";
+
+export default function KontakPage() {
+    return(
+        <main>
+            <Kontak />
+
+            <Footer />
         </main>
     )
 }
