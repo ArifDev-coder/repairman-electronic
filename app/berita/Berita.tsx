@@ -5,3 +5,11 @@ export default function Berita() {
     </div>
   );
 }
+
+/* 
+* Todo:
+- [ ] Fetch berita teknologi data from API
+- [ ] Menambahkan informasi status workshop
+- [ ] Mempercantik Tampilan
+- [ ] Membuat Backend untuk menyimpan data workshop
+*/
