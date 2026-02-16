@@ -6,7 +6,7 @@ export default function VisiMisi() {
           Visi & Misi
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="p-4 border  rounded-lg shadow-sm bg-white">
+          <div className="p-4  rounded-lg shadow-lg bg-white">
             <h2 className="font-semibold text-2xl mb-4 text-brand-steel">
               Visi
             </h2>
@@ -16,7 +16,7 @@ export default function VisiMisi() {
               dan kepuasan pelanggan yang luar biasa.
             </p>
           </div>
-          <div className="p-4 border  rounded-lg shadow-sm bg-white">
+          <div className="p-4  rounded-lg shadow-lg bg-white">
             <h2 className="font-semibold text-2xl mb-4 text-brand-steel">
               Misi
             </h2>
