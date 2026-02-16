@@ -1,15 +1,19 @@
+import StatusToko from "./statustoko";
+
 export default function Berita() {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-white">
-      Berita Here
+    <div className="w-full min-h-screen flex bg-white">
+      <div className="max-w-7xl px-4 py-8 mx-auto">
+        <StatusToko isOpen={true} />
+
+      </div>
     </div>
   );
 }
 
 /* 
 * Todo:
-- [ ] Fetch berita teknologi data from API
-- [ ] Menambahkan informasi status workshop
+- [+] Menambahkan informasi status workshop
 - [ ] Mempercantik Tampilan
 - [ ] Membuat Backend untuk menyimpan data workshop
 */
