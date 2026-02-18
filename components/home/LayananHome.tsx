@@ -1,4 +1,4 @@
-import { dataLayanan } from "@/data/Layanan/dataLayanan";
+import { dataLayanan } from "@/data/layanan";
 import Link from "next/link";
 import Image from "next/image";
 

@@ -1,10 +1,10 @@
-import Footer from "@/components/custom/footer";
-import GoogleMap from "@/components/custom/maplocation";
-import Promotion from "@/components/custom/promotion";
-import Hero from "@/app/home/hero";
-import LayananHome from "@/app/home/layananhome";
-import Profile from "@/app/home/review";
-import VisiMisi from "@/app/home/visimisi";
+import Footer from "@/components/custom/Footer";
+import GoogleMap from "@/components/custom/MapLocation";
+import Promotion from "@/components/custom/Promotion";
+import Hero from "@/components/home/Hero";
+import LayananHome from "@/components/home/LayananHome";
+import Profile from "@/components/home/Review";
+import VisiMisi from "@/components/home/VisiMisi";
 
 export default function Home() {
   return (

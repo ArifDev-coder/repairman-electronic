@@ -1,5 +1,5 @@
-import Footer from "@/components/custom/footer";
-import Kontak from "./Kontak";
+import Footer from "@/components/custom/Footer";
+import Kontak from "@/components/kontak/Kontak";
 
 export default function KontakPage() {
     return(

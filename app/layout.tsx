@@ -3,8 +3,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Montserrat, Roboto, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 
-import Navbar from "@/components/custom/navbar";
-import MarqueeCustom from "@/components/custom/marquee";
+import Navbar from "@/components/custom/Navbar";
+import MarqueeCustom from "@/components/custom/Marquee";
 import { ThemeProvider } from "@/components/themes/theme-provider";
 
 const montserrat = Montserrat({ subsets: ["latin"] });

@@ -1,4 +1,4 @@
-import StatusToko from "./statustoko";
+import StatusToko from "./StatusToko";
 
 export default function Berita() {
   return (
