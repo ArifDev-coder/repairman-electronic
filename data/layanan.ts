@@ -1,4 +1,4 @@
-import tvImg from "../../public/layanan/tv.png";
+import tvImg from "@/public/layanan/tv.png";
 
 export const dataLayanan = [
   {
