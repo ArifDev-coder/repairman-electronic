@@ -14,7 +14,7 @@ export default function Kontak() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* KARTU WHATSAPP */}
           <a
-            href="https://wa.me/628123456789"
+            href="https://wa.me/6281231829437"
             className="flex flex-col items-center p-8 bg-green-50 rounded-2xl border-2 border-green-100 hover:border-green-500 transition-all group"
           >
             <MessageCircle className="w-12 h-12 text-green-600 mb-4 group-hover:scale-110 transition-transform" />

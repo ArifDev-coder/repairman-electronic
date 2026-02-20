@@ -1,6 +1,43 @@
+"use client";
+
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import ModalPesanan from "./ModalPesanan";
 
 const FormPesanan = () => {
+  const [formData, setFormData] = useState({
+    nama: "",
+    whatsapp: "",
+    layanan: "",
+    keluhan: "",
+  });
+  const [showModal, setShowModal] = useState(false);
+  const [waLink, setWaLink] = useState("");
+
+  const handleSubmitPesanan = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const response = await fetch("/api/pesan", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const hasil = await response.json();
+
+    if (hasil.success) {
+      console.log("Data berhasil masuk ke database!");
+
+      const pesanWA = `Halo, saya ${formData.nama} ingin servis ${formData.layanan}. Keluhan: ${formData.keluhan}`;
+      setWaLink(
+        `https://wa.me/6281231829437?text=${encodeURIComponent(pesanWA)}`,
+      );
+      setShowModal(true);
+    } else {
+      console.error("Error: " + hasil.error);
+    }
+  };
+
   return (
     <div className="max-w-md mx-auto md:bg-white sm:p-8 rounded-2xl sm:shadow-lg sm:border sm:border-gray-100">
       <div className="mb-8">
@@ -12,18 +49,19 @@ const FormPesanan = () => {
         </p>
       </div>
 
-      <form>
+      <form onSubmit={handleSubmitPesanan}>
         {/* Nama Lengkap */}
         <div className="mb-6">
           <label
-            htmlFor="name"
+            htmlFor="nama"
             className="block mb-2 text-sm font-semibold text-brand-navy"
           >
             Nama Lengkap
           </label>
           <input
+            onChange={(e) => setFormData({ ...formData, nama: e.target.value })}
             type="text"
-            id="name"
+            id="nama"
             className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-steel focus:border-brand-steel outline-none transition-all placeholder:text-gray-400 text-sm"
             placeholder="Contoh: Budi Santoso"
             required
@@ -39,6 +77,9 @@ const FormPesanan = () => {
             Nomor WhatsApp (<span className="text-red-500">Nomor Aktif</span>)
           </label>
           <input
+            onChange={(e) =>
+              setFormData({ ...formData, whatsapp: e.target.value })
+            }
             type="tel"
             id="noHP"
             className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-steel focus:border-brand-steel outline-none transition-all placeholder:text-gray-400 text-sm"
@@ -56,6 +97,9 @@ const FormPesanan = () => {
             Layanan yang Dibutuhkan
           </label>
           <input
+            onChange={(e) =>
+              setFormData({ ...formData, layanan: e.target.value })
+            }
             type="text"
             id="layanan"
             className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-steel focus:border-brand-steel outline-none transition-all placeholder:text-gray-400 text-sm"
@@ -73,6 +117,9 @@ const FormPesanan = () => {
             Detail Kendala
           </label>
           <textarea
+            onChange={(e) =>
+              setFormData({ ...formData, keluhan: e.target.value })
+            }
             id="keluhan"
             rows={4}
             className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-steel focus:border-brand-steel outline-none transition-all placeholder:text-gray-400 text-sm resize-none"
@@ -99,6 +146,8 @@ const FormPesanan = () => {
           <ArrowRight />
         </button>
       </form>
+
+      {showModal && <ModalPesanan urlwa={waLink} />}
     </div>
   );
 };
