@@ -5,8 +5,6 @@ export default function BeritaPage() {
   return (
     <main>
       <Berita />
-
-      <Footer />
     </main>
   )
 }

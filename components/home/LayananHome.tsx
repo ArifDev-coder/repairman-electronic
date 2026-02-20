@@ -37,7 +37,7 @@ export default function LayananHome() {
                   className="mt-4 inline-block px-4 py-2 bg-brand-steel hover:bg-brand-steel/90 text-white rounded-lg text-center font-semibold transition transform active:scale-95 active:translate-y-1 shadow-sm active:shadow-2xl"
                   aria-label={`Pesan ${layanan.title}`}
                 >
-                  Pesan Jasa
+                  Selengkapnya
                 </Link>
               </div>
             </article>

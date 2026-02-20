@@ -1,4 +1,3 @@
-import Footer from "@/components/custom/Footer";
 import GoogleMap from "@/components/custom/MapLocation";
 import Promotion from "@/components/custom/Promotion";
 import Hero from "@/components/home/Hero";
@@ -20,8 +19,6 @@ export default function Home() {
 
       {/* Google Map */}
       <GoogleMap />
-
-      <Footer />
     </main>
   );
 }

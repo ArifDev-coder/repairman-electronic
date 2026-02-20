@@ -34,12 +34,6 @@ export default function RootLayout({
           forcedTheme="light"
           enableSystem={false}
         >
-          {/* Marquee Custom */}
-          <MarqueeCustom />
-
-          {/* Navbar Here */}
-          <Navbar />
-
           {/* Content */}
           {children}
         </ThemeProvider>

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
 
-const NAV_ITEMS = ["Home", "Jasa", "Berita", "Kontak"];
+const NAV_ITEMS = ["Home", "Jasa", "Pesan","Berita", "Kontak"];
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
