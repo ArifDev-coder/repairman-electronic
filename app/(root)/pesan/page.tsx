@@ -1,4 +1,4 @@
-import FormPesanan from "@/components/pesan/FormPesanan";
+import FormPesanan from "@/components/root/pesan/FormPesanan";
 
 const page = () => {
   return (

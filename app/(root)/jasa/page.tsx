@@ -1,9 +1,9 @@
-import SemuaLayanan from "@/components/jasa/SemuaLayanan";
+import SemuaLayanan from "@/components/root/jasa/SemuaLayanan";
 
 export default function JasaPage() {
-    return(
-        <main>
-            <SemuaLayanan />
-        </main>
-    )
+  return (
+    <main>
+      <SemuaLayanan />
+    </main>
+  );
 }

@@ -1,4 +1,4 @@
-import Kontak from "@/components/kontak/Kontak";
+import Kontak from "@/components/root/kontak/Kontak";
 
 export default function KontakPage() {
   return (
