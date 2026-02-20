@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase";
+import { supabase } from "@/lib/supabase/supabase";
 
 export default async function AdminPage() {
   // Ambil data langsung dari server (Gak butuh API route buat baca doang)
