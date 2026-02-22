@@ -23,7 +23,7 @@ export default function GoogleMap() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Lokasi Syafa Workshop"
-              className="w-full aspect-[4/3] min-h-[300px]"
+              className="w-full aspect-4/3 min-h-75"
             />
           </div>
           <div className="flex flex-col justify-center p-8 bg-white rounded-2xl shadow-lg border border-slate-100">
