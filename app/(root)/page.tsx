@@ -9,7 +9,7 @@ const Profile = dynamic(() => import("@/components/root/home/Review"), {
   ),
 });
 
-const Promotion = dynamic(() => import("@/components/custom/Promotion"), {
+const Promotion = dynamic(() => import("@/components/root/home/Promotion"), {
   ssr: true,
   loading: () => (
     <section className="w-full py-16 md:py-20 bg-brand-navy min-h-[120px]" />
