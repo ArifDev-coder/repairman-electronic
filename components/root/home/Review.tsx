@@ -71,12 +71,14 @@ export default function Review() {
               </p>
 
               <div className="flex items-center gap-4 pt-4 border-t border-slate-100">
-                <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden border-2 border-slate-100">
+                <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden border-2 border-slate-100 aspect-square">
                   <Image
                     src={client.profile}
                     alt={client.name}
-                    fill
+                    width={48}
+                    height={48}
                     className="object-cover"
+                    loading="lazy"
                   />
                 </div>
                 <div>

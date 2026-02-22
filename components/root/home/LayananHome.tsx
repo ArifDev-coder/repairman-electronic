@@ -26,10 +26,12 @@ export default function LayananHome() {
                 <Image
                   src={layanan.image}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                   alt={layanan.title}
                   placeholder="blur"
                   priority={index === 0}
+                  fetchPriority={index === 0 ? "high" : "auto"}
                 />
               </div>
 
