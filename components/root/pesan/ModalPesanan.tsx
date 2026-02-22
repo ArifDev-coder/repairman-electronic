@@ -5,29 +5,17 @@ import { CheckCircle2, MessageCircle, X } from "lucide-react";
 
 interface ModalPesananProps {
   urlwa: string;
-  onClose?: () => void;
 }
 
-const ModalPesanan: React.FC<ModalPesananProps> = ({ urlwa, onClose }) => {
+const ModalPesanan: React.FC<ModalPesananProps> = ({ urlwa }) => {
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
-      onClick={onClose}
     >
       <div
         className="relative bg-white rounded-3xl max-w-sm w-full p-8 shadow-2xl border border-slate-100 transform transition-all"
         onClick={(e) => e.stopPropagation()}
       >
-        {onClose && (
-          <button
-            type="button"
-            onClick={onClose}
-            className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition-colors"
-            aria-label="Tutup"
-          >
-            <X className="w-5 h-5" />
-          </button>
-        )}
 
         <div className="text-center">
           <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-emerald-100 mb-6">
@@ -44,7 +32,6 @@ const ModalPesanan: React.FC<ModalPesananProps> = ({ urlwa, onClose }) => {
 
           <Link
             href={urlwa}
-            target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 rounded-xl font-semibold transition-colors"
           >

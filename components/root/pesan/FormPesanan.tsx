@@ -68,7 +68,6 @@ const FormPesanan = () => {
             <p>{error}</p>
           </div>
         )}
-
         <div>
           <label
             htmlFor="nama"
@@ -176,7 +175,7 @@ const FormPesanan = () => {
         </button>
       </form>
 
-      {showModal && <ModalPesanan urlwa={waLink} onClose={() => setShowModal(false)} />}
+      {showModal && <ModalPesanan urlwa={waLink} />}
     </div>
   );
 };
