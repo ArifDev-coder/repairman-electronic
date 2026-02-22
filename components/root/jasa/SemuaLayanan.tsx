@@ -27,7 +27,7 @@ export default function SemuaLayanan() {
                 <Image
                   src={layanan.image}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="object-contain group-hover:scale-105 transition-transform duration-300"
                   alt={layanan.title}
                   placeholder="blur"
                   priority={index < 3}
