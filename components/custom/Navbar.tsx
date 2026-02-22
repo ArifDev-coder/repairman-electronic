@@ -1,13 +1,18 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button } from "../ui/button";
 
-const NAV_ITEMS = ["Home", "Jasa", "Pesan","Berita", "Kontak"];
+const NAV_ITEMS = [
+  { label: "Beranda", href: "/" },
+  { label: "Jasa", href: "/jasa" },
+  { label: "Pesan", href: "/pesan" },
+  { label: "Berita", href: "/berita" },
+  { label: "Kontak", href: "/kontak" },
+];
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -24,9 +29,9 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
-  const isActive = (link: string) => {
-    const href = `/${link.toLowerCase()}`;
-    return pathname === href || (link === "Home" && pathname === "/");
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
   };
 
   useEffect(() => {
@@ -63,46 +68,51 @@ export default function Navbar() {
     <nav
       className={cn(
         "w-full sticky top-0 z-50 transition-all duration-300",
-        "py-4 px-8 select-none",
+        "py-4 px-6 md:px-8 select-none",
         "bg-brand-navy/95 backdrop-blur-lg",
-        "text-brand-navy dark:text-white border-b border-slate-200 dark:border-white/10 shadow-sm",
+        "text-white border-b border-white/10 shadow-lg",
       )}
     >
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center z-40">
-          {/* Logo */}
+        <div className="flex justify-between items-center">
           <Link
             href="/"
-            className="font-bold text-xl hover:text-blue-200 transition-colors hover:animate-pulse"
+            className="font-bold text-xl hover:text-brand-light transition-colors"
           >
             Syafa Workshop
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="gap-8 items-center hidden md:flex">
-            {NAV_ITEMS.map((link) => (
+          <div className="gap-6 items-center hidden md:flex">
+            {NAV_ITEMS.map((item) => (
               <Link
-                key={link}
-                href={link === "Home" ? "/" : `/${link.toLowerCase()}`}
+                key={item.href}
+                href={item.href}
                 className={cn(
-                  "transition-all duration-200",
-                  isActive(link)
-                    ? "text-blue-400 font-semibold scale-120"
-                    : "hover:text-blue-200",
-                  "active:scale-95 active:translate-y-1 shadow-sm active:shadow-inner"
+                  "transition-all duration-200 font-medium",
+                  isActive(item.href)
+                    ? "text-brand-light font-semibold"
+                    : "hover:text-brand-light/80",
                 )}
               >
-                {link}
+                {item.label}
               </Link>
             ))}
+            <Link
+              href="https://wa.me/6281231829437"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg font-semibold transition-colors"
+            >
+              <MessageCircle className="w-4 h-4" />
+              Hubungi
+            </Link>
           </div>
 
-          {/* Mobile Menu Toggle */}
           <button
             ref={toggleRef}
             onClick={toggleMenu}
-            className="md:hidden p-2 hover:bg-white/10 rounded-lg transition-all duration-200 "
-            aria-label="Toggle menu"
+            className="md:hidden p-2 hover:bg-white/10 rounded-lg transition-all"
+            aria-label="Buka menu"
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
@@ -113,36 +123,41 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Navigation Menu */}
         <div
           ref={menuRef}
           className={cn(
             "w-full md:hidden overflow-hidden flex flex-col",
-            "transition-all duration-300 ease-in-out origin-top",
-            "text-center",
+            "transition-all duration-300 ease-in-out",
             isMobileMenuOpen
-              ? "max-h-125 opacity-100 translate-y-0 mt-4"
+              ? "max-h-96 opacity-100 translate-y-0 mt-4"
               : "max-h-0 opacity-0 -translate-y-2",
           )}
         >
-          {NAV_ITEMS.map((link) => (
+          {NAV_ITEMS.map((item) => (
             <Link
-              key={link}
-              href={link === "Home" ? "/" : `/${link.toLowerCase()}`}
+              key={item.href}
+              href={item.href}
               onClick={closeMenu}
               className={cn(
-                "px-4 py-2 rounded-lg transition-all duration-200",
-                isActive(link)
-                  ? "bg-blue-500 text-white font-semibold"
-                  : "hover:bg-white/5 text-white",
+                "px-4 py-3 rounded-lg transition-all font-medium",
+                isActive(item.href)
+                  ? "bg-white/20 text-white"
+                  : "hover:bg-white/10",
               )}
             >
-              {link}
+              {item.label}
             </Link>
           ))}
-          <Button className="mt-4 bg-red-600 font-bold" color="">
-            Hubungi Sekarang
-          </Button>
+          <Link
+            href="https://wa.me/6281231829437"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeMenu}
+            className="mt-4 mx-4 py-3 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg font-semibold text-center flex items-center justify-center gap-2"
+          >
+            <MessageCircle className="w-5 h-5" />
+            Hubungi via WhatsApp
+          </Link>
         </div>
       </div>
     </nav>

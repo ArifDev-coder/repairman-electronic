@@ -7,17 +7,12 @@ import VisiMisi from "@/components/root/home/VisiMisi";
 
 export default function Home() {
   return (
-    <main className="w-full bg-brand-light">
+    <main className="w-full bg-white">
       <Hero />
       <Profile />
       <LayananHome />
-
-      {/* Promotion */}
       <Promotion />
-
       <VisiMisi />
-
-      {/* Google Map */}
       <GoogleMap />
     </main>
   );

@@ -1,47 +1,42 @@
 import Image from "next/image";
-import { Star } from "lucide-react";
-
-/*
-Langkah-langkah bikin Review Card:
-1. Bikin <section> dengan padding gede (py-24).
-2. Masukin <div> container (max-w-7xl mx-auto).
-3. Bikin Judul Tengah (text-center).
-4. Bikin <div> Grid (grid md:grid-cols-3 gap-8).
-5. Di dalemnya, bikin <div> Card:
-   - bg-white, p-8, rounded-2xl, shadow-sm.
-   - Kasih 5 icon Bintang (Warna Yellow-400).
-   - Kasih <p> kutipan review (italic biar cakep).
-   - Kasih <div> buat Nama & Foto di bawah teks.
-*/
+import { Star, Quote } from "lucide-react";
 
 const clientReview = [
   {
-    name: "Client-1",
-    review: "Mantap!",
-    star: 4,
+    name: "Budi Santoso",
+    review:
+      "Pelayanan sangat memuaskan! TV saya yang rusak bisa diperbaiki dengan cepat dan harga terjangkau. Recommended!",
+    star: 5,
     profile: "/client_profile/Client-1.jpeg",
   },
   {
-    name: "Client-2",
-    review: "Tolol emang!",
-    star: 1,
+    name: "Siti Aminah",
+    review:
+      "Teknisi ramah dan profesional. Mesin cuci saya sudah berjalan normal lagi. Terima kasih Syafa Workshop!",
+    star: 5,
     profile: "/client_profile/Client-1.jpeg",
   },
   {
-    name: "Client-3",
-    review: "Rada-rada",
-    star: 3,
+    name: "Ahmad Wijaya",
+    review:
+      "Proses servis cepat, hasilnya memuaskan. Akan kembali lagi jika ada perangkat yang bermasalah.",
+    star: 5,
     profile: "/client_profile/Client-1.jpeg",
   },
 ];
 
 export default function Review() {
   return (
-    <section className="py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-8">
-        <h1 className="font-bold text-center text-3xl mb-8">
-          Review Pelanggan
-        </h1>
+    <section className="py-20 md:py-24 bg-slate-50">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
+        <div className="text-center mb-12">
+          <h2 className="font-bold text-3xl md:text-4xl text-brand-navy mb-3">
+            Apa Kata Pelanggan Kami
+          </h2>
+          <p className="text-slate-600 max-w-2xl mx-auto">
+            Kepuasan pelanggan adalah prioritas utama kami
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {clientReview.map((client, index) => (
@@ -49,31 +44,34 @@ export default function Review() {
               key={index}
               role="article"
               aria-label={`Review dari ${client.name}`}
-              className="relative bg-brand-navy p-8 rounded-2xl shadow-xl flex flex-col h-full transition-transform transform hover:shadow-2xl hover:-translate-y-1"
+              className="relative bg-white p-8 rounded-2xl shadow-lg border border-slate-100 flex flex-col h-full transition-all hover:shadow-xl hover:-translate-y-1"
             >
+              <Quote className="absolute top-6 right-6 w-10 h-10 text-brand-steel/20" />
               <div className="flex items-center gap-2 mb-4">
                 <div className="flex items-center gap-1">
                   {Array.from({ length: 5 }).map((_, s) => (
                     <Star
                       key={s}
-                      className={`w-5 h-5 ${s < client.star ? "text-yellow-400 fill-yellow-400" : "text-slate-500"}`}
+                      className={`w-5 h-5 shrink-0 ${
+                        s < client.star
+                          ? "text-amber-400 fill-amber-400"
+                          : "text-slate-200"
+                      }`}
                       aria-hidden
                     />
                   ))}
                 </div>
-                <span className="text-sm text-blue-200 font-medium">
+                <span className="text-sm text-slate-500 font-medium">
                   {client.star}.0
                 </span>
               </div>
 
-              <div className="relative mb-6">
-                <div className="text-brand-light italic leading-relaxed text-sm max-h-28 overflow-hidden">
-                  &quot;{client.review}&quot;
-                </div>
-              </div>
+              <p className="text-slate-600 leading-relaxed mb-6 flex-1">
+                &ldquo;{client.review}&rdquo;
+              </p>
 
-              <div className="flex items-center gap-4 mt-auto pt-4 border-t border-white/10">
-                <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden border-2 border-white/20">
+              <div className="flex items-center gap-4 pt-4 border-t border-slate-100">
+                <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden border-2 border-slate-100">
                   <Image
                     src={client.profile}
                     alt={client.name}
@@ -81,11 +79,11 @@ export default function Review() {
                     className="object-cover"
                   />
                 </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-white text-sm">
+                <div>
+                  <span className="font-bold text-brand-navy block">
                     {client.name}
                   </span>
-                  <span className="text-xs text-blue-300">Pelanggan Setia</span>
+                  <span className="text-xs text-slate-500">Pelanggan Setia</span>
                 </div>
               </div>
             </article>

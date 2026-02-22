@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import { useState } from "react";
 import ModalPesanan from "./ModalPesanan";
 
@@ -13,45 +13,63 @@ const FormPesanan = () => {
   });
   const [showModal, setShowModal] = useState(false);
   const [waLink, setWaLink] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmitPesanan = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
+    setIsSubmitting(true);
 
-    const response = await fetch("/api/pesan", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await fetch("/api/pesan", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    const hasil = await response.json();
+      const hasil = await response.json();
 
-    if (hasil.success) {
-      console.log("Data berhasil masuk ke database!");
-
-      const pesanWA = `Halo, saya ${formData.nama} ingin servis ${formData.layanan}. Keluhan: ${formData.keluhan}`;
-      setWaLink(
-        `https://wa.me/6281231829437?text=${encodeURIComponent(pesanWA)}`,
-      );
-      setShowModal(true);
-    } else {
-      console.error("Error: " + hasil.error);
+      if (hasil.success) {
+        const pesanWA = `Halo, saya ${formData.nama} ingin servis ${formData.layanan}. Keluhan: ${formData.keluhan}`;
+        setWaLink(
+          `https://wa.me/6281231829437?text=${encodeURIComponent(pesanWA)}`,
+        );
+        setShowModal(true);
+      } else {
+        setError(hasil.error || "Terjadi kesalahan. Silakan coba lagi.");
+      }
+    } catch {
+      setError("Gagal mengirim pesanan. Periksa koneksi internet Anda.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="max-w-md mx-auto md:bg-white sm:p-8 rounded-2xl sm:shadow-lg sm:border sm:border-gray-100">
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-brand-navy mb-2">
+    <div className="max-w-lg mx-auto bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-slate-100">
+      <div className="mb-10">
+        <h2 className="text-2xl md:text-3xl font-bold text-brand-navy mb-3">
           Form Pemesanan Layanan
         </h2>
-        <p className="text-sm text-gray-500">
-          Lengkapi data di bawah ini agar tim kami bisa segera menghubungi Anda.
+        <p className="text-slate-600 text-sm leading-relaxed">
+          Lengkapi data di bawah ini agar tim kami dapat segera menghubungi Anda
+          melalui WhatsApp.
         </p>
       </div>
 
-      <form onSubmit={handleSubmitPesanan}>
-        {/* Nama Lengkap */}
-        <div className="mb-6">
+      <form onSubmit={handleSubmitPesanan} className="space-y-6">
+        {error && (
+          <div
+            role="alert"
+            className="p-4 rounded-xl bg-red-50 border border-red-100 text-red-700 text-sm flex items-start gap-3"
+          >
+            <span className="shrink-0 mt-0.5">⚠</span>
+            <p>{error}</p>
+          </div>
+        )}
+
+        <div>
           <label
             htmlFor="nama"
             className="block mb-2 text-sm font-semibold text-brand-navy"
@@ -59,37 +77,40 @@ const FormPesanan = () => {
             Nama Lengkap
           </label>
           <input
+            value={formData.nama}
             onChange={(e) => setFormData({ ...formData, nama: e.target.value })}
             type="text"
             id="nama"
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-steel focus:border-brand-steel outline-none transition-all placeholder:text-gray-400 text-sm"
+            className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-steel focus:border-brand-steel outline-none transition-all placeholder:text-slate-400 text-sm"
             placeholder="Contoh: Budi Santoso"
             required
+            disabled={isSubmitting}
           />
         </div>
 
-        {/* No HP / WhatsApp */}
-        <div className="mb-6">
+        <div>
           <label
             htmlFor="noHP"
             className="block mb-2 text-sm font-semibold text-brand-navy"
           >
-            Nomor WhatsApp (<span className="text-red-500">Nomor Aktif</span>)
+            Nomor WhatsApp{" "}
+            <span className="text-red-500 font-normal">(nomor aktif)</span>
           </label>
           <input
+            value={formData.whatsapp}
             onChange={(e) =>
               setFormData({ ...formData, whatsapp: e.target.value })
             }
             type="tel"
             id="noHP"
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-steel focus:border-brand-steel outline-none transition-all placeholder:text-gray-400 text-sm"
-            placeholder="0812xxxx"
+            className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-steel focus:border-brand-steel outline-none transition-all placeholder:text-slate-400 text-sm"
+            placeholder="Contoh: 08123456789"
             required
+            disabled={isSubmitting}
           />
         </div>
 
-        {/* Jenis Layanan */}
-        <div className="mb-6">
+        <div>
           <label
             htmlFor="layanan"
             className="block mb-2 text-sm font-semibold text-brand-navy"
@@ -97,19 +118,20 @@ const FormPesanan = () => {
             Layanan yang Dibutuhkan
           </label>
           <input
+            value={formData.layanan}
             onChange={(e) =>
               setFormData({ ...formData, layanan: e.target.value })
             }
             type="text"
             id="layanan"
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-steel focus:border-brand-steel outline-none transition-all placeholder:text-gray-400 text-sm"
-            placeholder="Contoh: Servis TV"
+            className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-steel focus:border-brand-steel outline-none transition-all placeholder:text-slate-400 text-sm"
+            placeholder="Contoh: Servis TV, Perbaikan HP"
             required
+            disabled={isSubmitting}
           />
         </div>
 
-        {/* Detail Keluhan */}
-        <div className="mb-6">
+        <div>
           <label
             htmlFor="keluhan"
             className="block mb-2 text-sm font-semibold text-brand-navy"
@@ -117,37 +139,44 @@ const FormPesanan = () => {
             Detail Kendala
           </label>
           <textarea
+            value={formData.keluhan}
             onChange={(e) =>
               setFormData({ ...formData, keluhan: e.target.value })
             }
             id="keluhan"
             rows={4}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-steel focus:border-brand-steel outline-none transition-all placeholder:text-gray-400 text-sm resize-none"
+            className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-steel focus:border-brand-steel outline-none transition-all placeholder:text-slate-400 text-sm resize-none"
             placeholder="Ceritakan masalah perangkat Anda secara singkat..."
-          ></textarea>
+            required
+            disabled={isSubmitting}
+          />
         </div>
 
-        {/* Terms & Condition Policy */}
-        <div className="flex items-start mb-8 italic">
-          <p className="text-xs text-gray-500 leading-relaxed">
-            *Dengan menekan tombol submit, Anda menyetujui{" "}
-            <span className="text-brand-navy font-bold">
-              Syarat & Ketentuan
-            </span>{" "}
-            layanan kami.
-          </p>
+        <div className="text-xs text-slate-500 leading-relaxed italic">
+          *Dengan menekan tombol kirim, Anda menyetujui Syarat & Ketentuan
+          layanan kami.
         </div>
 
         <button
           type="submit"
-          className="w-full bg-brand-navy text-white font-bold py-4 rounded-xl hover:bg-opacity-90 transform active:scale-[0.98] transition-all shadow-md hover:shadow-lg flex justify-center items-center gap-2"
+          disabled={isSubmitting}
+          className="w-full bg-brand-navy text-white font-bold py-4 rounded-xl hover:bg-brand-navy/90 disabled:opacity-70 disabled:cursor-not-allowed transform active:scale-[0.98] transition-all shadow-lg hover:shadow-xl flex justify-center items-center gap-2"
         >
-          Konfirmasi Pesanan
-          <ArrowRight />
+          {isSubmitting ? (
+            <>
+              <Loader2 className="w-5 h-5 animate-spin" />
+              Mengirim...
+            </>
+          ) : (
+            <>
+              Konfirmasi Pesanan
+              <ArrowRight className="w-5 h-5" />
+            </>
+          )}
         </button>
       </form>
 
-      {showModal && <ModalPesanan urlwa={waLink} />}
+      {showModal && <ModalPesanan urlwa={waLink} onClose={() => setShowModal(false)} />}
     </div>
   );
 };

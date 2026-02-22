@@ -1,84 +1,81 @@
 import Link from "next/link";
-
 import { Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="w-full">
-      <div className="max-w-7xl mx-auto px-4 py-8 text-center font-bold">
-        <div
-          className="grid grid-cols-1
-        md:grid-cols-3 gap-12 mb-12"
-        >
-          <div className="flex flex-col gap-4">
-            <h2 className="text-2xl font-bold">Syafa Workshop</h2>
-            <p className="text-sm text-brand-teal leading-relaxed">
-              Solusi Servis Elektronik di Kota Anda
+    <footer className="w-full bg-brand-navy text-white">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div>
+            <h2 className="text-xl font-bold mb-4">Syafa Workshop</h2>
+            <p className="text-slate-300 text-sm leading-relaxed">
+              Solusi servis elektronik terpercaya di kota Anda. Perbaikan TV,
+              kulkas, mesin cuci, dan perangkat elektronik lainnya.
             </p>
           </div>
+
           <div>
             <h3 className="font-bold mb-4">Navigasi</h3>
-            <ul className="flex flex-col gap-2 text-sm text-brand-teal">
-              <li className="">
-                <Link
-                  href="/"
-                  className={`hover:text-brand-teal/80 hover:underline`}
-                >
+            <ul className="flex flex-col gap-3 text-sm text-slate-300">
+              <li>
+                <Link href="/" className="hover:text-white transition-colors">
                   Beranda
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/jasa"
-                  className="hover:text-brand-teal/80 hover:underline"
-                >
+                <Link href="/jasa" className="hover:text-white transition-colors">
                   Jasa
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/berita"
-                  className="hover:text-brand-teal/80 hover:underline"
-                >
+                <Link href="/pesan" className="hover:text-white transition-colors">
+                  Pesan Layanan
+                </Link>
+              </li>
+              <li>
+                <Link href="/berita" className="hover:text-white transition-colors">
                   Berita
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/kontak"
-                  className="hover:text-brand-teal/80 hover:underline"
-                >
+                <Link href="/kontak" className="hover:text-white transition-colors">
                   Kontak
                 </Link>
               </li>
             </ul>
           </div>
+
           <div>
             <h3 className="font-bold mb-4">Hubungi Kami</h3>
-            <ul className="flex flex-col gap-3 text-sm text-slate-400">
-              <li>
-                <MapPin className="inline mr-2 w-4 h-4" /> Jl. Gunung Gansir,
-                Dsn. Gesing RT001 RW008, Randupitu, Gempol, Pasuruan, Jawa
-                Timur. <p>Sebelah Utara Pabrik Berkat Ganda Sentosa.</p>{" "}
+            <ul className="flex flex-col gap-4 text-sm text-slate-300">
+              <li className="flex gap-3">
+                <MapPin className="w-5 h-5 shrink-0 text-brand-steel" />
+                <span>
+                  Jl. Gunung Gangsir, Gesing RT001 RW008, Randupitu, Gempol,
+                  Pasuruan, Jawa Timur. Sebelah utara PT Berkat Ganda Sentosa.
+                </span>
               </li>
-              <li>
-                <Phone className="inline mr-2 w-4 h-4" /> Whatsapp:{" "}
+              <li className="flex gap-3">
+                <Phone className="w-5 h-5 shrink-0 text-brand-steel" />
                 <a
                   href="https://wa.me/6281231829437"
-                  className="hover:text-brand-teal/60 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
                 >
-                  +62 812-3456-7890
+                  0812-3182-9437
                 </a>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <div>
+
+      <div className="border-t border-white/10 py-4">
+        <p className="text-center text-sm text-slate-400">
+          &copy; {new Date().getFullYear()} Syafa Workshop. Hak cipta dilindungi.
+        </p>
       </div>
-      <span className="w-full text-center mt-6 py-2 block text-xs font-semibold border-t-black/40 border-t">
-        &copy;{new Date().getFullYear()} Syafa Workshop, All Right Reserved.
-      </span>
     </footer>
   );
 }
