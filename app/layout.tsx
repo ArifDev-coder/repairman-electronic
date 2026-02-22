@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Montserrat, Roboto, Bebas_Neue } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 
 import { ThemeProvider } from "@/components/themes/theme-provider";
 
-const montserrat = Montserrat({ subsets: ["latin"] });
-const roboto = Roboto({ subsets: ["latin"] });
-const bebas_neue = Bebas_Neue({ subsets: ["latin"], weight: ["400"] });
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Syafa Workshop - Servis Elektronik Terpercaya",
