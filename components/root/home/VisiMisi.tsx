@@ -40,11 +40,7 @@ export default function VisiMisi() {
                 <span className="text-brand-steel font-bold">•</span>
                 Menyediakan layanan servis yang cepat, andal, dan berkualitas
               </li>
-              <li className="flex gap-2">
-                <span className="text-brand-steel font-bold">•</span>
-                Mempekerjakan teknisi berpengalaman dan terupdate dengan
-                teknologi terbaru
-              </li>
+
               <li className="flex gap-2">
                 <span className="text-brand-steel font-bold">•</span>
                 Membangun hubungan jangka panjang dengan pelayanan ramah dan

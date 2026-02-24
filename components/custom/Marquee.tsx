@@ -16,12 +16,11 @@ const Marquee = dynamic(
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 font-semibold text-sm hover:underline"
         >
-          <MessageCircle className="w-4 h-4" />
           Hubungi WhatsApp: 0812-3182-9437 — Gratis pengecekan!
         </Link>
       </div>
     ),
-  }
+  },
 );
 
 export default function MarqueeCustom() {
@@ -34,7 +33,6 @@ export default function MarqueeCustom() {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 mx-6 font-semibold text-sm hover:underline"
         >
-          <MessageCircle className="w-4 h-4" />
           Hubungi WhatsApp: 0812-3182-9437 — Gratis pengecekan!
         </Link>
       </Marquee>

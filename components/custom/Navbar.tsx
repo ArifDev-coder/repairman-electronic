@@ -8,9 +8,9 @@ import { usePathname } from "next/navigation";
 
 const NAV_ITEMS = [
   { label: "Beranda", href: "/" },
-  { label: "Jasa", href: "/jasa" },
+  { label: "Layanan", href: "/layanan" },
   { label: "Pesan", href: "/pesan" },
-  { label: "Berita", href: "/berita" },
+  { label: "Tentang", href: "/tentang" },
   { label: "Kontak", href: "/kontak" },
 ];
 
@@ -103,7 +103,6 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg font-semibold transition-colors"
             >
-              <MessageCircle className="w-4 h-4" />
               Hubungi
             </Link>
           </div>
@@ -155,7 +154,6 @@ export default function Navbar() {
             onClick={closeMenu}
             className="mt-4 mx-4 py-3 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg font-semibold text-center flex items-center justify-center gap-2"
           >
-            <MessageCircle className="w-5 h-5" />
             Hubungi via WhatsApp
           </Link>
         </div>

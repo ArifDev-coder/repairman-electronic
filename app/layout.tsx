@@ -11,9 +11,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Syafa Workshop - Servis Elektronik Terpercaya",
+  title: "Syafa Workshop",
   description:
-    "Jasa servis elektronik terpercaya. Perbaikan TV, kulkas, mesin cuci, AC, dan perangkat elektronik lainnya. Gratis pengecekan, harga transparan, garansi.",
+    "Jasa Servis Dan Pembuatan Ampli/Mixer",
 };
 
 export default function RootLayout({

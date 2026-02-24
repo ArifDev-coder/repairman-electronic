@@ -1,6 +1,12 @@
 import dynamic from "next/dynamic";
 import Hero from "@/components/root/home/Hero";
 import LayananHome from "@/components/root/home/LayananHome";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home | SyafaWorkshop",
+  description: "blablabla"
+}
 
 const Profile = dynamic(() => import("@/components/root/home/Review"), {
   ssr: true,

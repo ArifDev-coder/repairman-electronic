@@ -1,6 +1,21 @@
-import { MessageCircle, MapPin } from "lucide-react";
+"use client";
+
+import { MessageCircle, MapPin, ArrowRight, Loader2 } from "lucide-react";
+import { useState } from "react";
 
 export default function Kontak() {
+  const [formData, setFormData] = useState({
+    nama: "",
+    pesan: ""
+  })
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>("");
+
+  const handleSubmit = () => {
+    setError(null);
+    setIsSubmitting(true);
+  };
+
   return (
     <section className="min-h-screen bg-linear-to-b from-slate-50 to-white py-20 px-6">
       <div className="max-w-4xl mx-auto">
@@ -30,6 +45,7 @@ export default function Kontak() {
             <p className="text-slate-600 text-center text-sm">
               Untuk informasi layanan, estimasi biaya, dan jadwal servis
             </p>
+            <p className="text-emerald-500 mt-8">+62 812-3182-9437</p>
           </a>
 
           <div className="flex flex-col items-center p-10 bg-brand-navy text-white rounded-2xl shadow-lg">
@@ -47,17 +63,79 @@ export default function Kontak() {
           </div>
         </div>
 
-        <div className="mt-12 rounded-2xl overflow-hidden shadow-lg border border-slate-200">
-          <iframe
-            title="Lokasi Syafa Workshop di Google Maps"
-            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d15818.253907121529!2d112.70329445!3d-7.622383200000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sid!2sid!4v1770714651045!5m2!1sid!2sid"
-            allowFullScreen
-            width="100%"
-            height="320"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="w-full"
-          />
+        <div className="mt-12 rounded-2xl overflow-hidden shadow-lg border border-slate-200 p-8">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {error && (
+              <div
+                role="alert"
+                className="p-4 rounded-xl bg-red-50 border border-red-100 text-red-700 text-sm flex items-start gap-3"
+              >
+                <span className="shrink-0 mt-0.5">⚠</span>
+                <p>{error}</p>
+              </div>
+            )}
+            <div>
+              <label
+                htmlFor="nama"
+                className="block mb-2 text-sm font-semibold text-brand-navy"
+              >
+                Nama Lengkap
+              </label>
+              <input
+                value={formData.nama}
+                onChange={(e) =>
+                  setFormData({ ...formData, nama: e.target.value })
+                }
+                type="text"
+                id="nama"
+                className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-steel focus:border-brand-steel outline-none transition-all placeholder:text-slate-400 text-sm"
+                placeholder="Contoh: Budi Santoso"
+                required
+                disabled={isSubmitting}
+              />
+            </div>
+
+
+
+            <div>
+              <label
+                htmlFor="keluhan"
+                className="block mb-2 text-sm font-semibold text-brand-navy"
+              >
+                Pesan
+              </label>
+              <textarea
+                value={formData.pesan}
+                onChange={(e) =>
+                  setFormData({ ...formData, pesan: e.target.value })
+                }
+                id="keluhan"
+                rows={4}
+                className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-steel focus:border-brand-steel outline-none transition-all placeholder:text-slate-400 text-sm resize-none"
+                placeholder="Ceritakan masalah perangkat Anda secara singkat..."
+                required
+                disabled={isSubmitting}
+              />
+            </div>
+
+
+            <button
+              type="submit"
+              className="w-full bg-brand-navy text-white font-bold py-4 rounded-xl hover:bg-brand-navy/90 disabled:opacity-70 disabled:cursor-not-allowed transform active:scale-[0.98] transition-all shadow-lg hover:shadow-xl flex justify-center items-center gap-2"
+            >
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Mengirim...
+                </>
+              ) : (
+                <>
+                  Kirim Pesan
+                  <ArrowRight className="w-5 h-5" />
+                </>
+              )}
+            </button>
+          </form>
         </div>
       </div>
     </section>
