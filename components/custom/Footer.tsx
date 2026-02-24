@@ -85,7 +85,7 @@ export default function Footer() {
             <h3 className="font-bold mb-4">Web Developer</h3>
             <ul className="flex flex-col gap-4 text-sm text-slate-300">
               <li className="flex gap-3">
-                <span>ACHMAD ZAINUL ARIF</span>
+                <span className="font-bold italic">ACHMAD ZAINUL ARIF</span>
               </li>
               <li>
                 <Link
