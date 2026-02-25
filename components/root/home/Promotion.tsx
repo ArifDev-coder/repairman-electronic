@@ -29,7 +29,6 @@ export default function Promotion() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold transition-colors active:scale-95 shrink-0"
             >
-              <MessageCircle className="w-5 h-5" />
               Hubungi via WhatsApp
             </Link>
           </div>

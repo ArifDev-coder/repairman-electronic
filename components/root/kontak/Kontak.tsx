@@ -2,18 +2,31 @@
 
 import { MessageCircle, MapPin, ArrowRight, Loader2 } from "lucide-react";
 import { useState } from "react";
+import { WAKIRIM } from "@/data/NoHp";
 
 export default function Kontak() {
   const [formData, setFormData] = useState({
     nama: "",
-    pesan: ""
-  })
+    pesan: "",
+  });
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [error, setError] = useState<string | null>("");
 
   const handleSubmit = () => {
     setError(null);
     setIsSubmitting(true);
+
+    try {
+      window.open(
+        `${WAKIRIM}Halo, Saya ${formData.nama}. ${formData.pesan}`,
+        "_blank",
+      );
+      setTimeout(() => {
+        setIsSubmitting(false);
+      }, 1000);
+    } catch (err: any) {
+      setError(err.message);
+    }
   };
 
   return (
@@ -63,7 +76,7 @@ export default function Kontak() {
           </div>
         </div>
 
-        <div className="mt-12 rounded-2xl overflow-hidden shadow-lg border border-slate-200 p-8">
+      <div className="mt-12 rounded-2xl overflow-hidden shadow-lg border border-slate-200 p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             {error && (
               <div
@@ -95,8 +108,6 @@ export default function Kontak() {
               />
             </div>
 
-
-
             <div>
               <label
                 htmlFor="keluhan"
@@ -117,7 +128,6 @@ export default function Kontak() {
                 disabled={isSubmitting}
               />
             </div>
-
 
             <button
               type="submit"
