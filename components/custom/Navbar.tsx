@@ -68,7 +68,7 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        "w-full sticky top-0 z-50 transition-all duration-300",
+        "w-full sticky top-0 z-50",
         "py-4 px-6 md:px-8 select-none",
         "bg-brand-navy/95 backdrop-blur-lg",
         "text-white border-b border-white/10 shadow-lg",
@@ -91,7 +91,7 @@ export default function Navbar() {
                 className={cn(
                   "transition-all duration-200 font-medium",
                   isActive(item.href)
-                    ? "text-brand-light font-semibold"
+                    ? "text-brand-light font-semibold animate-pulse"
                     : "hover:text-brand-light/80",
                 )}
               >
@@ -127,7 +127,6 @@ export default function Navbar() {
           ref={menuRef}
           className={cn(
             "w-full md:hidden overflow-hidden flex flex-col",
-            "transition-all duration-300 ease-in-out",
             isMobileMenuOpen
               ? "max-h-96 opacity-100 translate-y-0 mt-4"
               : "max-h-0 opacity-0 -translate-y-2",
