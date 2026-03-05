@@ -1,44 +1,30 @@
-import tvImg from "@/public/layanan/tv.png";
+import blenderImg from "@/public/layanan/blender.png"
+import kipasAnginImg from "@/public/layanan/kipasangin.png"
+import powerAmpliImg from "@/public/layanan/powerampli.png"
 
 export const dataLayanan = [
   {
-    title: "Servis TV",
+    title: "Servis Blender",
     description:
-      "Perbaikan TV rusak, gambar tidak jelas, tidak ada suara, dan masalah lainnya. Teknisi berpengalaman siap membantu.",
-    hargaMin: 50000,
-    hargaMax: 500000,
-    image: tvImg,
+      "Perbaikan blender mati total, pisau tumpul, atau mesin berisik. Kembalikan fungsi blender Anda untuk keperluan dapur.",
+    hargaMin: 20000,
+    hargaMax: 50000,
+    image: blenderImg,
   },
   {
-    title: "Servis Kulkas",
+    title: "Servis Kipas Angin",
     description:
-      "Servis kulkas tidak dingin, bocor, berisik, dan perawatan rutin. Garansi untuk setiap perbaikan.",
-    hargaMin: 75000,
-    hargaMax: 600000,
-    image: tvImg,
+      "Servis kipas angin putaran lambat, mati total, atau berisik. Kami pastikan udara di ruangan Anda kembali sejuk.",
+    hargaMin: 20000,
+    hargaMax: 50000,
+    image: kipasAnginImg,
   },
   {
-    title: "Servis Mesin Cuci",
+    title: "Servis dan Perakitan Audio",
     description:
-      "Perbaikan mesin cuci tidak berputar, bocor, atau bermasalah. Spare part original dan berkualitas.",
-    hargaMin: 50000,
-    hargaMax: 450000,
-    image: tvImg,
-  },
-  {
-    title: "Servis AC",
-    description:
-      "Service AC tidak dingin, cuci AC, isi freon, dan perbaikan komponen. Harga transparan dan bersaing.",
+      "Terima servis berbagai perangkat audio dan perakitan power ampli custom sesuai kebutuhan audio Anda.",
     hargaMin: 100000,
-    hargaMax: 750000,
-    image: tvImg,
-  },
-  {
-    title: "Servis Elektronik Lainnya",
-    description:
-      "Perbaikan blender, kipas angin, rice cooker, dan perangkat elektronik rumah tangga lainnya.",
-    hargaMin: 25000,
-    hargaMax: 300000,
-    image: tvImg,
+    hargaMax: 200000,
+    image: powerAmpliImg,
   },
 ];

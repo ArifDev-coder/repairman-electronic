@@ -43,7 +43,7 @@ export default function LayananHome() {
                   {layanan.description}
                 </p>
                 <Link
-                  href="/jasa"
+                  href="/layanan"
                   className="inline-flex items-center gap-2 text-brand-steel font-semibold hover:text-brand-navy transition-colors"
                   aria-label={`Lihat detail ${layanan.title}`}
                 >
@@ -57,7 +57,7 @@ export default function LayananHome() {
 
         <div className="text-center mt-12">
           <Link
-            href="/jasa"
+            href="/layanan"
             className="inline-flex items-center gap-2 px-8 py-3.5 bg-brand-steel hover:bg-brand-steel/90 text-white rounded-xl font-semibold transition-all active:scale-95 shadow-lg"
             aria-label="Lihat semua layanan"
           >
@@ -69,3 +69,10 @@ export default function LayananHome() {
     </section>
   );
 }
+
+/*
+Kipas: ongkos 20-50rb
+Blender: ongkos 20-50rb
+Servis dan Perakitan Audio: 100-200rb
+
+*/

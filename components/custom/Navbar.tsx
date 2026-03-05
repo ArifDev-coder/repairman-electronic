@@ -5,6 +5,7 @@ import { Menu, X, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { URLWA } from "@/data/NoHp";
 
 const NAV_ITEMS = [
   { label: "Beranda", href: "/" },
@@ -98,7 +99,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="https://wa.me/6281231829437"
+              href={URLWA}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg font-semibold transition-colors"
@@ -148,7 +149,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="https://wa.me/6281231829437"
+            href={URLWA}
             target="_blank"
             rel="noopener noreferrer"
             onClick={closeMenu}

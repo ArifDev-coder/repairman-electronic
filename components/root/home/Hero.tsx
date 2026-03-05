@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { URLWA } from "@/data/NoHp";
 
 export default function Hero() {
   return (
@@ -18,7 +19,7 @@ export default function Hero() {
 
           <div className="flex flex-wrap gap-4">
             <Link
-              href="https://wa.me/6281231829437"
+              href={URLWA}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-brand-steel hover:bg-brand-steel/90 text-white font-bold py-3.5 px-8 rounded-xl transition duration-300 active:scale-95 shadow-lg hover:shadow-xl"
@@ -26,7 +27,7 @@ export default function Hero() {
               Konsultasi via WhatsApp
             </Link>
             <Link
-              href="/jasa"
+              href="/layanan"
               className="bg-white border-2 border-slate-200 hover:border-brand-steel text-brand-navy px-8 py-3.5 rounded-xl font-bold transition-all active:scale-95 shadow-sm"
             >
               Lihat Daftar Harga

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Phone, MapPin, Github, Mail } from "lucide-react";
+import { URLWA, NoWa } from "@/data/NoHp";
+import { formatPhone } from "@/lib/utils/formatPhone";
 
 export default function Footer() {
   return (
@@ -24,7 +26,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/jasa"
+                  href="/layanan"
                   className="hover:text-white transition-colors"
                 >
                   Jasa
@@ -70,12 +72,12 @@ export default function Footer() {
               <li className="flex gap-3">
                 <Phone className="w-5 h-5 shrink-0 text-brand-steel" />
                 <Link
-                  href="https://wa.me/6281231829437"
+                  href={URLWA}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  0812-3182-9437
+                  {formatPhone(NoWa)}
                 </Link>
               </li>
             </ul>

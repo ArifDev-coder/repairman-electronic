@@ -41,10 +41,16 @@ export default function SemuaLayanan() {
                 <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-2">
                   {layanan.description}
                 </p>
-                <p className="text-sm font-semibold text-brand-steel mb-4">
-                  Estimasi biaya: {formatRupiah(layanan.hargaMin)} –{" "}
-                  {formatRupiah(layanan.hargaMax)}
-                </p>
+                <div className="text-sm font-semibold text-brand-steel mb-4">
+                  {" "}
+                  <p>
+                    Estimasi biaya: {formatRupiah(layanan.hargaMin)} –{" "}
+                    {formatRupiah(layanan.hargaMax)}
+                  </p>
+                  <p className="font-light">
+                    <span className="text-red-500">*</span>Tidak Termasuk Harga Sparepart
+                  </p>
+                </div>
                 <Link
                   href="/pesan"
                   className="inline-flex items-center gap-2 px-4 py-2.5 bg-brand-steel hover:bg-brand-steel/90 text-white rounded-xl font-semibold transition-colors"
