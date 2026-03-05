@@ -37,6 +37,7 @@ const FormPesanan = () => {
         setShowModal(true);
       } else {
         setError(hasil.error || "Terjadi kesalahan. Silakan coba lagi.");
+        console.error(hasil.error)
       }
     } catch (err: any) {
       setError("Gagal mengirim pesanan. Periksa koneksi internet Anda.");
