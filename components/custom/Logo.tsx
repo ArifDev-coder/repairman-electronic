@@ -21,7 +21,7 @@ export function Logo({ className, size = 40 }: LogoProps) {
         <span className="font-bold text-lg leading-none tracking-tight text-white">
           Syafa
         </span>
-        <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-teal">
+        <span className="text-sm font-semibold tracking-[0.2em] uppercase text-brand-teal">
           Workshop
         </span>
       </div>
