@@ -1,4 +1,10 @@
 import FormPesanan from "@/components/root/pesan/FormPesanan";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Pesan Layanan",
+  description: "Formulir pemesanan layanan servis elektronik Syafa Workshop. Klik di sini untuk memesan servis perbaikan TV, Kulkas, Mixer, atau konsultasi Audio."
+};
 
 const page = () => {
   return (

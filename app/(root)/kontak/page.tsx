@@ -2,8 +2,8 @@ import Kontak from "@/components/root/kontak/Kontak";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Kontak | Syafa Workshop",
-  description: "Halaman Kontak Syafa Workshop. Di tujukan kepada client yang ingin menghubungi kami untuk hal tertentu selain memesan jasa."
+  title: "Hubungi Kami",
+  description: "Ada pertanyaan atau keluhan seputar barang elektronik Anda? Hubungi Syafa Workshop melalui WhatsApp atau kunjungi lokasi kami di Pasuruan untuk solusi servis terbaik."
 }
 
 export default function KontakPage() {

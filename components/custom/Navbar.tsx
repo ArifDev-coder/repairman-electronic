@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
+import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -78,9 +79,9 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           <Link
             href="/"
-            className="font-bold text-xl hover:text-brand-light transition-colors"
+            className="hover:opacity-80 transition-opacity"
           >
-            Syafa Workshop
+            <Logo size={32} />
           </Link>
 
           <div className="gap-6 items-center hidden md:flex">

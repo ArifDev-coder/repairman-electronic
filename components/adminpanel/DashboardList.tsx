@@ -268,7 +268,7 @@ export default function DashboardList({ initialPesanan }: { initialPesanan: Pesa
                   </div>
                 </div>
                 
-                <div className="flex flex-col gap-4 min-w-[200px]">
+                <div className="flex flex-col gap-4 min-w-50">
                   <div className="flex justify-end">
                     <StatusBadge status={item.status} />
                   </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "./Logo";
 import { Phone, MapPin, Github, Mail } from "lucide-react";
 import { URLWA, NoWa } from "@/data/NoHp";
 import { formatPhone } from "@/lib/utils/formatPhone";
@@ -7,9 +8,9 @@ export default function Footer() {
   return (
     <footer className="w-full bg-brand-navy text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12">
           <div>
-            <h2 className="text-xl font-bold mb-4">Syafa Workshop</h2>
+            <Logo size={40} className="mb-4" />
             <p className="text-slate-300 text-sm leading-relaxed">
               Solusi servis elektronik terpercaya di kota Anda. Perbaikan TV,
               kulkas, mesin cuci, dan perangkat elektronik lainnya.
@@ -38,14 +39,6 @@ export default function Footer() {
                   className="hover:text-white transition-colors"
                 >
                   Pesan Layanan
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/berita"
-                  className="hover:text-white transition-colors"
-                >
-                  Berita
                 </Link>
               </li>
               <li>
@@ -111,7 +104,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://github.com/ArifDev-coder"
+                  href="mailto:achadzainul67@gmail.com"
                   className=" flex gap-3"
                 >
                   <Mail className="w-5 h-5 shrink-0 text-brand-steel" />
