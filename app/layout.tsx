@@ -11,9 +11,13 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Syafa Workshop",
+  title: {
+    default: "Syafa Workshop | Servis Elektronik & Audio Terpercaya",
+    template: "%s | Syafa Workshop",
+  },
   description:
-    "Jasa Servis Dan Pembuatan Ampli/Mixer",
+    "Solusi profesional untuk servis TV, kulkas, mesin cuci, serta perakitan Audio Ampli & Mixer. Berpengalaman, bergaransi, dan terpercaya di Pasuruan.",
+  keywords: ["servis elektronik", "servis tv pasuruan", "rakit ampli", "servis kulkas", "servis mesin cuci", "syafa workshop", "audio mixer"],
 };
 
 export default function RootLayout({

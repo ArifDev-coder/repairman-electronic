@@ -132,7 +132,7 @@ export default function DashboardList({ initialPesanan }: { initialPesanan: Pesa
     } else if (!cleaned.startsWith("62")) {
       cleaned = "62" + cleaned;
     }
-    const message = encodeURIComponent(`Halo ${nama}, ini dari Admin Repairman Electronic. Terkait pesanan servis Anda:`);
+    const message = encodeURIComponent(`Halo ${nama}, ini dari Admin Syafa Workshop. Terkait pesanan servis Anda:`);
     window.open(`https://wa.me/${cleaned}?text=${message}`, "_blank");
   };
 
@@ -268,7 +268,7 @@ export default function DashboardList({ initialPesanan }: { initialPesanan: Pesa
                   </div>
                 </div>
                 
-                <div className="flex flex-col gap-4 min-w-[200px]">
+                <div className="flex flex-col gap-4 min-w-50">
                   <div className="flex justify-end">
                     <StatusBadge status={item.status} />
                   </div>

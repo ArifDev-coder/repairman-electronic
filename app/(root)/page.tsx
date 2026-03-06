@@ -4,8 +4,8 @@ import LayananHome from "@/components/root/home/LayananHome";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Home | SyafaWorkshop",
-  description: "blablabla"
+  title: "Beranda | Spesialis Servis & Audio Workshop",
+  description: "Selamat datang di Syafa Workshop. Melayani servis peralatan elektronik rumah tangga dan jasa rakit perangkat."
 }
 
 const Profile = dynamic(() => import("@/components/root/home/Review"), {
