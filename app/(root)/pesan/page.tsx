@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Pesan Layanan",
-  description: "Formulir pemesanan layanan servis elektronik Syafa Workshop. Klik di sini untuk memesan servis perbaikan TV, Kulkas, Mixer, atau konsultasi Audio."
+  description: "Formulir pemesanan layanan servis elektronik Syafa Workshop. Klik di sini untuk memesan servis perbaikan Mixer, atau konsultasi Audio."
 };
 
 const page = () => {

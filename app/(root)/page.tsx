@@ -5,7 +5,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Beranda | Spesialis Servis & Audio Workshop",
-  description: "Selamat datang di Syafa Workshop. Melayani servis peralatan elektronik rumah tangga dan jasa rakit perangkat audio berkualitas tinggi dengan garansi terpercaya."
+  description: "Selamat datang di Syafa Workshop. Melayani servis peralatan elektronik rumah tangga dan jasa rakit perangkat."
 }
 
 const Profile = dynamic(() => import("@/components/root/home/Review"), {

@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Layanan Lengkap",
-  description: "Daftar lengkap layanan kami: servis TV (LED/LCD), kulkas, mesin cuci, kipas angin, blender, hingga jasa rakit & servis audio amplifier/mixer profesional.",
+  description: "Daftar lengkap layanan kami: servis kipas angin, blender, hingga jasa rakit & servis audio amplifier/mixer.",
 };
 
 export default function JasaPage() {
