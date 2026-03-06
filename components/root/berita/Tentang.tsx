@@ -1,6 +1,6 @@
 import StatusToko from "./StatusToko";
 
-export default function Berita() {
+export default function Tentang() {
   return (
     <main className="w-full min-h-screen bg-linear-to-b from-slate-50 to-white">
       <div className="max-w-4xl mx-auto px-6 py-16">

@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { Phone, MapPin } from "lucide-react";
+import { Phone, MapPin, Github, Mail } from "lucide-react";
+import { URLWA, NoWa } from "@/data/NoHp";
+import { formatPhone } from "@/lib/utils/formatPhone";
 
 export default function Footer() {
   return (
@@ -23,22 +25,34 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/jasa" className="hover:text-white transition-colors">
+                <Link
+                  href="/layanan"
+                  className="hover:text-white transition-colors"
+                >
                   Jasa
                 </Link>
               </li>
               <li>
-                <Link href="/pesan" className="hover:text-white transition-colors">
+                <Link
+                  href="/pesan"
+                  className="hover:text-white transition-colors"
+                >
                   Pesan Layanan
                 </Link>
               </li>
               <li>
-                <Link href="/berita" className="hover:text-white transition-colors">
+                <Link
+                  href="/berita"
+                  className="hover:text-white transition-colors"
+                >
                   Berita
                 </Link>
               </li>
               <li>
-                <Link href="/kontak" className="hover:text-white transition-colors">
+                <Link
+                  href="/kontak"
+                  className="hover:text-white transition-colors"
+                >
                   Kontak
                 </Link>
               </li>
@@ -57,14 +71,52 @@ export default function Footer() {
               </li>
               <li className="flex gap-3">
                 <Phone className="w-5 h-5 shrink-0 text-brand-steel" />
-                <a
-                  href="https://wa.me/6281231829437"
+                <Link
+                  href={URLWA}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  0812-3182-9437
-                </a>
+                  {formatPhone(NoWa)}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-bold mb-4">Web Developer</h3>
+            <ul className="flex flex-col gap-4 text-sm text-slate-300">
+              <li className="flex gap-3">
+                <span className="font-bold italic">ACHMAD ZAINUL ARIF</span>
+              </li>
+              <li>
+                <Link
+                  href="https://wa.me/6282143390839"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors flex gap-3"
+                >
+                  <Phone className="w-5 h-5 shrink-0 text-brand-steel" />
+                  0821-4339-0839
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://github.com/ArifDev-coder"
+                  className=" flex gap-3"
+                >
+                  <Github className="w-5 h-5 shrink-0 text-brand-steel" />
+                  ArifDev-coder
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://github.com/ArifDev-coder"
+                  className=" flex gap-3"
+                >
+                  <Mail className="w-5 h-5 shrink-0 text-brand-steel" />
+                  achadzainul67@gmail.com
+                </Link>
               </li>
             </ul>
           </div>
@@ -73,7 +125,8 @@ export default function Footer() {
 
       <div className="border-t border-white/10 py-4">
         <p className="text-center text-sm text-slate-400">
-          &copy; {new Date().getFullYear()} Syafa Workshop. Hak cipta dilindungi.
+          &copy; {new Date().getFullYear()} Syafa Workshop. Hak cipta
+          dilindungi.
         </p>
       </div>
     </footer>

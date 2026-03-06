@@ -3,6 +3,7 @@
 import { ArrowRight, Loader2 } from "lucide-react";
 import { useState } from "react";
 import ModalPesanan from "./ModalPesanan";
+import { NoWa, URLWA, WAKIRIM } from "@/data/NoHp";
 
 const FormPesanan = () => {
   const [formData, setFormData] = useState({
@@ -31,15 +32,14 @@ const FormPesanan = () => {
       const hasil = await response.json();
 
       if (hasil.success) {
-        const pesanWA = `Halo, saya ${formData.nama} ingin servis ${formData.layanan}. Keluhan: ${formData.keluhan}`;
-        setWaLink(
-          `https://wa.me/6281231829437?text=${encodeURIComponent(pesanWA)}`,
-        );
+        const msg = `Halo, saya ${formData.nama} ingin servis ${formData.layanan}. Keluhan: ${formData.keluhan}`;
+        setWaLink(`${WAKIRIM}${encodeURIComponent(msg)}`);
         setShowModal(true);
       } else {
         setError(hasil.error || "Terjadi kesalahan. Silakan coba lagi.");
+        console.error(hasil.error)
       }
-    } catch {
+    } catch (err: any) {
       setError("Gagal mengirim pesanan. Periksa koneksi internet Anda.");
     } finally {
       setIsSubmitting(false);

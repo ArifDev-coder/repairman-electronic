@@ -5,12 +5,13 @@ import { Menu, X, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { URLWA } from "@/data/NoHp";
 
 const NAV_ITEMS = [
   { label: "Beranda", href: "/" },
-  { label: "Jasa", href: "/jasa" },
+  { label: "Layanan", href: "/layanan" },
   { label: "Pesan", href: "/pesan" },
-  { label: "Berita", href: "/berita" },
+  { label: "Tentang", href: "/tentang" },
   { label: "Kontak", href: "/kontak" },
 ];
 
@@ -67,7 +68,7 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        "w-full sticky top-0 z-50 transition-all duration-300",
+        "w-full sticky top-0 z-50",
         "py-4 px-6 md:px-8 select-none",
         "bg-brand-navy/95 backdrop-blur-lg",
         "text-white border-b border-white/10 shadow-lg",
@@ -90,7 +91,7 @@ export default function Navbar() {
                 className={cn(
                   "transition-all duration-200 font-medium",
                   isActive(item.href)
-                    ? "text-brand-light font-semibold"
+                    ? "text-brand-light font-semibold animate-pulse"
                     : "hover:text-brand-light/80",
                 )}
               >
@@ -98,12 +99,11 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="https://wa.me/6281231829437"
+              href={URLWA}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg font-semibold transition-colors"
             >
-              <MessageCircle className="w-4 h-4" />
               Hubungi
             </Link>
           </div>
@@ -127,7 +127,6 @@ export default function Navbar() {
           ref={menuRef}
           className={cn(
             "w-full md:hidden overflow-hidden flex flex-col",
-            "transition-all duration-300 ease-in-out",
             isMobileMenuOpen
               ? "max-h-96 opacity-100 translate-y-0 mt-4"
               : "max-h-0 opacity-0 -translate-y-2",
@@ -149,13 +148,12 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="https://wa.me/6281231829437"
+            href={URLWA}
             target="_blank"
             rel="noopener noreferrer"
             onClick={closeMenu}
             className="mt-4 mx-4 py-3 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg font-semibold text-center flex items-center justify-center gap-2"
           >
-            <MessageCircle className="w-5 h-5" />
             Hubungi via WhatsApp
           </Link>
         </div>

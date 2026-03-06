@@ -1,27 +1,23 @@
-import Image from "next/image";
 import { Star, Quote } from "lucide-react";
 
 const clientReview = [
   {
     name: "Budi Santoso",
     review:
-      "Pelayanan sangat memuaskan! TV saya yang rusak bisa diperbaiki dengan cepat dan harga terjangkau. Recommended!",
+      "Blender saya yang tadinya mati total sekarang jadi seperti baru lagi. Harganya sangat transparan dan pengerjaannya cepat!",
     star: 5,
-    profile: "/client_profile/Client-1.jpeg",
   },
   {
     name: "Siti Aminah",
     review:
-      "Teknisi ramah dan profesional. Mesin cuci saya sudah berjalan normal lagi. Terima kasih Syafa Workshop!",
+      "Kipas angin di rumah berisik dan putarannya lambat, setelah diservis di sini jadi kencang lagi. Mantap!",
     star: 5,
-    profile: "/client_profile/Client-1.jpeg",
   },
   {
     name: "Ahmad Wijaya",
     review:
-      "Proses servis cepat, hasilnya memuaskan. Akan kembali lagi jika ada perangkat yang bermasalah.",
+      "Rakitan power ampli-nya mantap, suaranya jernih dan bass-nya nendang. Teknisi sangat paham soal audio.",
     star: 5,
-    profile: "/client_profile/Client-1.jpeg",
   },
 ];
 
@@ -71,15 +67,8 @@ export default function Review() {
               </p>
 
               <div className="flex items-center gap-4 pt-4 border-t border-slate-100">
-                <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden border-2 border-slate-100 aspect-square">
-                  <Image
-                    src={client.profile}
-                    alt={client.name}
-                    width={48}
-                    height={48}
-                    className="object-cover"
-                    loading="lazy"
-                  />
+                <div className="flex items-center justify-center w-12 h-12 shrink-0 rounded-full bg-brand-navy text-white font-bold text-lg border-2 border-slate-100">
+                  {client.name.charAt(0)}
                 </div>
                 <div>
                   <span className="font-bold text-brand-navy block">
